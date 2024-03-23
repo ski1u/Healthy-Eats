@@ -1,0 +1,296 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --domcolor: #4CAF50;
+    --secondcolor: #fff;
+    --actioncolor: #FFA726;
+
+    --primaryfont: Montserrat;
+    --secondaryfont: "Open Sans";
+    --logofont: "Slackside One";
+
+    --darkmodedelay: 0.5s
+}
+
+/* SETUP AND DARKMODE TRANSITIONS */
+body {
+    /* background-color: var(--domcolor); */
+    background-image: linear-gradient(to top, #4CAF50, #86BF88);
+    padding: 20px;
+    transition: background-color var(--darkmodedelay);
+}
+body > *:not(#header) {
+    transition: all 0.75s;
+    opacity: 0;
+    transform: translateY(50px)
+}
+body > *:not(#header).visible {
+    opacity: 1;
+    transform: translateY(-50px);
+}
+h1 {
+    transition: color var(--darkmodedelay)
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 15px;
+    transition: border-bottom var(--darkmodedelay);
+    margin: 0 auto;
+    width: 80%;
+}
+#logo h1 {
+    font-family: var(--logofont);
+    color: white;
+    font-size: 55px;
+    font-weight: 1000;
+}
+#header nav a {
+    color: var(--secondcolor);
+    text-decoration: none;
+    font-family: var(--secondaryfont);
+    font-size: 22px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+#header nav img {
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+}
+
+
+
+
+#main { /* MAIN HERO CONTENT */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 100px;
+    position: relative;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+.main-left h1 {
+    font-family: var(--primaryfont);
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+.main-left h1 span {
+    color: #B8E5B9;
+    border-bottom: 2px solid black;
+    text-shadow: 2px 2px hsla(0, 0%, 0%,0.5);
+}
+.main-left p {
+    font-family: var(--secondaryfont);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--secondcolor);
+    margin-bottom: 150px;
+    width: 75%;
+}
+.main-left button {
+    padding: 30px;
+    font-family: var(--primaryfont);
+    font-size: 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--actioncolor);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 4px 1px black;
+    transition: transform 0.5s
+}
+.main-left button:hover {
+    transform: translateY(-10px);
+}
+.main-right img {
+    position: absolute;
+    left: 850px;
+    top: 50px;
+    transition: transform 0.5s
+}
+.main-right img:hover {
+    transform: translateY(-20px)
+}
+
+
+/* BENEFITS AND OFFER */
+#benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 150px;
+}
+.b-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.b-right h2 {
+    color: white;
+    font-family: var(--primaryfont);
+    font-size: 40px;
+    margin-bottom: 75px;
+    text-align: center;
+}
+.b-list div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.b-list div button {
+    padding: 20px;
+    width: 65%;
+    margin-bottom: 30px;
+    background-color: var(--actioncolor);
+    border: none;
+    border-radius: 12px;
+    text-align: start;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 3px 5px rgba(0, 0, 0,0.2);
+    transition: background-color 0.25s, transform 0.5s
+}
+.b-list div button:hover {
+    transform: translateY(-10px)
+}
+.b-list div button span {
+    font-size: 30px;
+    font-family: var(--secondaryfont);
+    font-weight: 400;
+    margin-right: 75px;
+}
+.b-list div button:not(span) {
+    font-family: var(--secondaryfont);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 6px;
+}
+
+
+
+
+/* FEATURED RECIPES */
+#recipes {
+    padding: 50px;
+    overflow-x: auto;
+    margin-bottom: 100px;
+}
+#recipes::-webkit-scrollbar {
+    display: none;
+}
+.r-top h2 {
+    font-family: var(--secondaryfont);
+    color: white;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.r-main {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(350px,350px));
+    grid-auto-flow: column;
+    gap: 100px;
+}
+.r-main > div {
+    background-color: hsla(121, 46%, 81%,0.3);
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px 1px hsla(0, 0%, 0%,0.5);
+    background-size: cover;
+    height: 500px;
+    cursor: pointer;
+    transition: all 0.5s
+}
+.r-main > div:hover {
+    transform: translateY(-50px);
+}
+.r-text {
+    margin-top: 100%;
+}
+.r-text h3 {
+    font-size: 32px;
+    font-family: var(--primaryfont);
+    margin-bottom: 24px;
+    color: #B8E5B9;
+    font-weight: 800;
+    text-shadow: 2px 2px black;
+}
+.r-text p {
+    font-size: 18px;
+    font-family: var(--secondaryfont);
+    color: white;
+    margin-bottom: 30px;
+}
+.r-content {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* PURPOSE AND ABOUT */
+#purpose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#purpose h1 {
+    font-size: 75px;
+    font-family: var(--primaryfont);
+    color: #084D0A;
+    text-shadow: 2px 1px white;
+    margin-bottom: 20px;
+}
+#purpose p {
+    font-size: 28px;
+    width: 50%;
+    text-align: center;
+    color: white;
+    font-family: var(--secondaryfont);
+    text-shadow: 2px 2px #86BF88;
+    margin-bottom: 50px;
+}
+#purpose button {
+    padding: 20px;
+    width: 10%;
+    border-radius: 12px;
+    font-size: 24px;
+    font-family: var(--secondaryfont);
+    background-color: var(--actioncolor);
+    box-shadow: 0 0 5px 1px black;
+    border: none;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* FOOTER */
+#foot {
+    display: flex;
+    margin-top: 100px;
+    background-color: black;
+    padding: 50px;
+    border-radius: 20px;
+}
+#foot > * {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    color: white;
+}
+#foot > * > * {
+    margin-top: 20px;
+}
